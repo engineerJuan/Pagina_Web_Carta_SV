@@ -3,6 +3,7 @@
     --s: #ffccd5;
     --d: #c9184a;
     --w: #ffffff;
+    --transition: all 0.3s ease;
 }
 
 /* ESTILOS GENERALES */
@@ -15,6 +16,12 @@ body {
     background-color: var(--s);
     font-family: 'Arial', sans-serif;
     overflow: hidden;
+    transition: var(--transition);
+}
+
+/* Clase para cambiar el fondo dinámicamente */
+body.con-fondo {
+    background-color: #ffb3c1;
 }
 
 /* DISEÑO DE LA TARJETA */
@@ -27,12 +34,23 @@ body {
     width: 90%;
     max-width: 400px;
     border: 5px solid var(--p);
+    z-index: 10;
+}
+
+.envelope-img {
+    width: 100px; 
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.envelope-img:hover {
+    transform: scale(1.1) rotate(5deg);
 }
 
 /* TEXTO DE LA CARTA PERSONAL */
 .letter-text {
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.6;
     color: #444;
     text-align: left;
     margin-bottom: 20px;
@@ -47,27 +65,17 @@ body {
     gap: 20px; 
     margin-top: 25px;
     position: relative;
-    min-height: 60px;
-}
-
-/* CONTENEDOR DE BOTÓN NO*/
-.wrapper-no {
-    width: 100px; 
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 /* ESTILOS DE BOTONES */
 button {
-    padding: 10px 30px;
+    padding: 12px 35px;
     font-size: 1.1rem;
     font-weight: bold;
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s, background 0.3s;
 }
 
 .open-btn, .next-btn, #si {
@@ -75,10 +83,15 @@ button {
     color: var(--w);
 }
 
+.open-btn:hover, .next-btn:hover, #si:hover {
+    background: var(--d);
+    transform: scale(1.05);
+}
+
 #no {
     background: #e0e0e0;
     color: #666;
-    z-index: 1000;
+    position: relative;
 }
 
 /* SECCIÓN DE RESPUESTA FINAL */
@@ -89,29 +102,26 @@ button {
     line-height: 1.2;
 }
 
-/* Estilo para el texto secundario o recordatorio final */
 .final-text {
     font-size: 1rem;
     margin-bottom: 15px;
     color: #555;
 }
 
-/* Contenedor de la respuesta final, oculto por defecto con animación de entrada */
 .res {
     display: none;
     text-align: center;
-    animation: scaleIn 0.5s ease-out forwards;
+    animation: scaleIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-/* Estilo y centrado de la imagen final de Bubu y Dudu */
 .final-img {
     display: block;
     margin: 0 auto;
     max-width: 200px;
     border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* Definición de la animación de escala para la aparición de la respuesta */
 @keyframes scaleIn {
     from { opacity: 0; transform: scale(0.5); }
     to { opacity: 1; transform: scale(1); }
