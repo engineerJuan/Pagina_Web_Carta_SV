@@ -1,7 +1,6 @@
 /* LÓGICA DE NAVEGACIÓN Y BOTÓN INTERACTIVO */
 const bNo = document.getElementById('no');
 const bSi = document.getElementById('si');
-const music = document.getElementById('bgMusic');
 
 // Función para abrir el sobre y CAMBIAR FONDO
 function openCard() {
@@ -39,5 +38,4 @@ bSi.addEventListener('click', () => {
     bNo.style.display = 'none';
 
     document.getElementById('v-si').style.display = 'block';
-    music.play().catch(e => console.log("Música activada")); 
 });
