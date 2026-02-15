@@ -22,6 +22,7 @@ function showQuiz() {
 
 // Función para que el botón No escape aleatoriamente
 const move = () => {
+    // Al moverlo, usamos position fixed para que no afecte el flujo del botón SI
     bNo.style.position = 'fixed';
 
     // Cálculo mejorado para evitar que se salga de los bordes

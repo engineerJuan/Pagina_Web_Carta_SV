@@ -35,16 +35,13 @@ body.con-fondo {
     max-width: 400px;
     border: 5px solid var(--p);
     z-index: 10;
+    position: relative;
 }
 
+/* IMAGEN DEL SOBRE INICIAL */
 .envelope-img {
     width: 100px; 
     cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.envelope-img:hover {
-    transform: scale(1.1) rotate(5deg);
 }
 
 /* TEXTO DE LA CARTA PERSONAL */
@@ -64,6 +61,7 @@ body.con-fondo {
     align-items: center;
     gap: 20px; 
     margin-top: 25px;
+    min-height: 60px;
     position: relative;
 }
 
@@ -78,20 +76,23 @@ button {
     transition: transform 0.2s, background 0.3s;
 }
 
+/* BOTONES DE ACCIÓN PRINCIPAL */
 .open-btn, .next-btn, #si {
     background: var(--p);
     color: var(--w);
 }
 
+/* EFECTOS HOVER */
 .open-btn:hover, .next-btn:hover, #si:hover {
     background: var(--d);
     transform: scale(1.05);
 }
 
+/* BOTÓN QUE ESCAPA */
 #no {
     background: #e0e0e0;
     color: #666;
-    position: relative;
+    transition: none;
 }
 
 /* SECCIÓN DE RESPUESTA FINAL */
@@ -102,18 +103,21 @@ button {
     line-height: 1.2;
 }
 
+/* TEXTO FINAL DE DESPEDIDA */
 .final-text {
     font-size: 1rem;
     margin-bottom: 15px;
     color: #555;
 }
 
+/* ANIMACIÓN DE ENTRADA FINAL */
 .res {
     display: none;
     text-align: center;
     animation: scaleIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
+/* IMAGEN DE CIERRE */
 .final-img {
     display: block;
     margin: 0 auto;
@@ -122,6 +126,7 @@ button {
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
+/* KEYFRAMES PARA ESCALADO */
 @keyframes scaleIn {
     from { opacity: 0; transform: scale(0.5); }
     to { opacity: 1; transform: scale(1); }
